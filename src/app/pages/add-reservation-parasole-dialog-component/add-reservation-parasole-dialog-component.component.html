@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Ajouter une réservation parasol</h2>
+<div mat-dialog-content>
+    <div class="form-group">
+        <label for="file">File</label>
+        <select class="form-control" name="file" [(ngModel)]="selectedFile" (change)="onFileSelected()">
+          <option *ngFor="let file of data.files" [value]="file.id">F{{ file.numero }} , Prix : {{ file.prixJournalier }} €/Jour</option>
+        </select>
+      </div>
+  <div class="form-group">
+    <label for="parasole">Parasol</label>
+    <select class="form-control" name="parasole" [(ngModel)]="selectedParasole">
+      <option *ngFor="let parasol of parasoles" [value]="parasol.id">{{ parasol.numEmplacement }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="equipement">Équipement</label>
+    <select class="form-control" name="equipement" [(ngModel)]="selectedEquipement">
+      <option value="lit">Lit</option>
+      <option value="deux_lits">Deux Lits</option>
+      <option value="fauteuil">Fauteuil</option>
+      <option value="deux_fauteuils">Deux Fauteuils</option>
+    </select>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button mat-button (click)="onReserve()">Réserver</button>
+</div>

@@ -1,0 +1,41 @@
+<div class="dialog-container">
+<h2>Détails de la réservation</h2>
+
+<div>
+  <p><strong>Date de début :</strong> {{ data.reservation.dateDebut }}</p>
+  <p><strong>Date de fin :</strong> {{ data.reservation.dateFin }}</p>
+  <p><strong>Remarque :</strong> {{ data.reservation.remarque }}</p>
+  <p><strong>Statut :</strong> 
+    <span [style.textAlign]="data.reservation.statut === 'NonConfirmed' ? 'left' : 'right'">
+      <label class="switch">
+        <input type="checkbox" (change)="changeStatus()">
+        <span class="slider round"></span>
+      </label>
+    </span>
+  </p>
+  
+  
+  <p><strong>Facture :</strong> {{ data.reservation?.facture?.montant }} €</p>
+</div>
+<div>
+    <h4>Le Client : </h4>
+    <p><strong>Nom :</strong> {{ data.reservation?.client?.nom }}</p>
+  <p><strong>Prenom</strong> {{ data.reservation?.client?.prenom }}</p>
+  <p><strong>Email</strong> {{ data.reservation?.client?.email }}
+  <p><strong>Pays</strong> {{ data.reservation?.client?.pays?.nom }}
+  </div>
+
+
+<div>
+  <h4>Les Parasoles</h4>
+  <ul>
+    <li *ngFor="let reservationParasole of data.reservation.reservationParasoles">
+      Numero :   {{ reservationParasole?.parasole?.numEmplacement }} dans la file {{ reservationParasole?.parasole?.file?.numero }} avec {{ reservationParasole?.equipements }}
+    </li>
+  </ul>
+</div>
+
+<div>
+  <button (click)="OnDelete(data.reservation.id)">Supprimer la réservation</button>
+</div>
+</div>

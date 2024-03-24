@@ -1,0 +1,14 @@
+<div>
+    <h2>Ajouter un lien parenté</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="selectedLien">Type de parenté :</label>
+        <select id="selectedLien" [(ngModel)]="selectedLien" name="selectedLien">
+          <option value="cousins">Cousins</option>
+          <option value="freres">Frères</option>
+        </select>
+      </div>
+      <button type="submit">Ajouter</button>
+    </form>
+  </div>
+  

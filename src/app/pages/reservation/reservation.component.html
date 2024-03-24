@@ -1,0 +1,36 @@
+<h2>Liste des réservations du client</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date de début</th>
+      <th>Date de fin</th>
+      <th>Remarque</th>
+      <th>Statut</th>
+      <th>Montant</th>
+      <th>Emplacement</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of reservations">
+      <td>{{ reservation.dateDebut }}</td>
+      <td>{{ reservation.dateFin }}</td>
+      <td>{{ reservation.remarque }}</td>
+      <td>
+        <span *ngIf="reservation.statut === 'Confirmed'">
+          <i class="bi bi-check-circle-fill text-success"></i> <!-- Icône de confirmation -->
+        </span>
+        <span *ngIf="reservation.statut === 'NonConfirmed'">
+          <i class="bi bi-x-circle-fill text-danger"></i> <!-- Icône de non-confirmation -->
+        </span>
+      </td>
+      <td>{{ reservation?.facture?.montant }} €</td>
+      <td *ngFor="let reservationPara of reservation?.reservationParasoles">{{ reservationPara?.parasole?.file?.concession?.name }} : Parasole numero {{ reservationPara?.parasole?.numEmplacement }} dans la file {{ reservationPara?.parasole?.file?.numero }} avec {{ reservationPara?.equipements }} </td>
+      <td><button type="button" class="btn btn-danger" (click)="OnDelete(reservation.id)">Annuler</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button type="button" class="btn btn-primary" [routerLink]="['/AddRservation']">Ajouter une réservation</button>

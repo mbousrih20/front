@@ -1,0 +1,65 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+        />
+        <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
+          Nom d'utilisateur est obligatoire!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot De Passe</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Mot De Passe doit contenir au moins 6 characteres
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">
+          Se Connecter
+        </button>
+      </div>
+      <div>
+        <p>Mot De passe oublié? <a routerLink="/forgetpassword"> clique ici</a> </p>
+      </div>
+      <div class="form-group">
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+          Authentification échouée: {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

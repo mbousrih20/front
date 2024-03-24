@@ -1,0 +1,38 @@
+.beach {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px; /* Espacement entre les lignes */
+}
+
+.parasol {
+  width: 30px; /* Largeur d'une parasole */
+  height: 30px; /* Hauteur d'une parasole */
+  margin-right: 5px; /* Espacement entre les parasoles */
+  background-color: rgb(226, 215, 215); /* Couleur de base pour une parasole */
+  border: 1px solid #000; /* Bordure de la parasole */
+  border-radius: 50%; /* Forme arrondie pour simuler une parasole */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre pour simuler la profondeur */
+}
+.confirmed {
+  background-color: #066906; /* Couleur verte pour les parasols confirmés */
+}
+
+.non-confirmed {
+  background-color: #f8f85d; /* Couleur jaune pour les parasols non confirmés */
+}
+
+ 
+.date{
+  width: 20%;
+  margin: 15px;
+  margin-top: 0px;
+  padding: 3px;
+}

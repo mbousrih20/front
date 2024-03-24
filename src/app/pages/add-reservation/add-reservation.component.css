@@ -1,0 +1,36 @@
+.card-container {
+    background-color: rgba(255, 255, 255, 0.7); /* Couleur de fond semi-transparente */
+    padding: 20px;
+  }
+  
+  .card-container h2 {
+    color: #333; /* Couleur du texte */
+  }
+  
+  .form-control {
+    background-color: rgba(255, 255, 255, 0.7); /* Couleur de fond semi-transparente */
+  }
+  
+  .table {
+    background-color: rgba(255, 255, 255, 0.7); /* Couleur de fond semi-transparente */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Couleur de fond du bouton */
+    border-color: #007bff; /* Couleur de bordure du bouton */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Couleur de fond du bouton au survol */
+    border-color: #0056b3; /* Couleur de bordure du bouton au survol */
+  }
+  .ListParasole {
+    display: flex;
+    flex-direction: row;
+  }
+  .ListParasole h4 {
+    padding-right: 30px;
+  }
+  .form-group button {
+    justify-content: right;
+  }

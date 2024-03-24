@@ -1,0 +1,35 @@
+<div id="app" class="app">
+  <div class="navigation" style="padding: 0px;">
+    <a href="/home" class="navbar-brand" id="brand">Sunset View</a>
+    <div class="rightbutton">
+      <div class="nav-button-home" *ngIf="showAdminBoard" style="margin-right: 25px;">
+        <a href="/ListClient" class="nav-link" routerLink="ListClient">Clients</a>
+      </div>
+      <div class="nav-button-home" *ngIf="showAdminBoard" style="margin-right: 25px;">
+        <a href="/admin" class="nav-link" routerLink="admin">Reservations</a>
+      </div>
+      <div class="nav-button-home" *ngIf="isLoggedIn && !showAdminBoard" style="margin-right: 25px;">
+        <a href="/reservation" class="nav-link" *ngIf="isLoggedIn" routerLink="reservation">Mes réservations</a>
+      </div>
+
+
+    <div class="nav-button-home" id="register" *ngIf="!isLoggedIn">
+      <a href="/register" class="nav-link" routerLink="register">Inscription</a>
+    </div>
+    <div class="nav-button-home" id="login" *ngIf="!isLoggedIn">
+      <a href="/login" class="nav-link" routerLink="login">Connexion</a>
+    </div>
+
+
+    <div class="nav-item" *ngIf="isLoggedIn && !showAdminBoard" style="margin-right: 25px;">
+      <a href="/profile" class="nav-link" routerLink="profile">Mes Informations</a>
+    </div>
+    <div class="nav-item" *ngIf="isLoggedIn">
+      <a href class="nav-link" (click)="logout(username)">Deconnexion</a>
+    </div>
+    </div>
+</div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

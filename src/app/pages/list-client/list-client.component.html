@@ -1,0 +1,33 @@
+<div class="ListClient">
+<h2>Liste des clients</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Email</th>
+      <th>Pays</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.username }}</td>
+      <td>{{ user.nom }}</td>
+      <td>{{ user.prenom }}</td>
+      <td>
+        {{ user.email }}
+      </td>
+      <td>
+        {{ user.pays?.nom }}
+      </td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="openAddDialog(user.id)">Ajouter Lien De Parente</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
